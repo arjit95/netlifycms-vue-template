@@ -1,0 +1,45 @@
+backend:
+    name: git-gateway
+    branch: master
+
+local_backend: true
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+    - name: 'blog'
+      label: 'Blog'
+      format: 'yaml-frontmatter'
+      folder: 'content/blog'
+      create: true
+      editor:
+        preview: false
+      slug: '{{year}}-{{month}}-{{slug}}'
+      fields:
+        - { label: 'Title', name: 'title', widget: 'string' }
+        - { label: 'Featured Image', name: 'featured_image', widget: 'image', required: false }
+        - { label: 'Youtube url', name: 'featured_video', widget: 'string', required: false }
+        - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["firstName", "lastName"], valueField: "title"}
+        - { label: "Tags (comma separated)", name: "tags", widget: "list", default: ["news"], required: false }
+        - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+        - { label: 'Description', name: 'description', widget: 'string' }
+        - { label: "Category", name: "category", widget: "select", options: [
+            { label: 'Internet', value: 'internet' }
+          ]}
+        - { label: 'Body', name: 'body', widget: 'markdown' }
+    - name: "authors"
+      label: "Authors"
+      folder: "content/authors"
+      format: 'yaml-frontmatter'
+      create: true
+      editor:
+        preview: false
+      slug: "{{slug}}"
+      fields: 
+        - {label: "Full Name", name: "title", widget: "string"}
+        - {label: "First Name", name: "firstName", widget: "string"}
+        - {label: "Last Name", name: "lastName", widget: "string"}
+        - {label: "Profile Picture", name: "profilePicture", widget: "image"}
+        - {label: "Email", name: "email", widget: "string"}
+  
