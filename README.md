@@ -1,6 +1,10 @@
 # netlifycms-vue
 > A simple template built with  [Vue.js](https://vuejs.org), [Netlify CMS](https://netlifycms.org), [Nuxt Content](https://content.nuxtjs.org), [Vuetify](https://vuetifyjs.com)
 
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arjit95/netlifycms-vue-template)
+
+
 ## Build Setup
 
 ```bash
